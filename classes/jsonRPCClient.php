@@ -134,17 +134,15 @@ class jsonRPCClient
                 $request = json_encode($request, JSON_FORCE_OBJECT);
             }
 
-            $credentials = "wallet:faucet";
-
-            // performs the HTTP POST
+              // performs the HTTP POST
                 $ch = curl_init($this->url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json', "Authorization: Basic " . base64_encode($credentials)));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
             $response = json_decode(curl_exec($ch), true);
             curl_close($ch);
-                //print_r($response);
+                print_r($response);
 
                 // debug output
                 if ($this->debug) {
