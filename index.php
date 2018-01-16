@@ -71,7 +71,7 @@ require_once 'config.php';
             $balance = $bitcoin->getbalance();
             $balanceDisponible = $balance['available_balance'];
             $lockedBalance = $balance['locked_amount'];
-            $dividirEntre = 10000000000;
+            $dividirEntre = 100000000;
             $totalBCN = ($balanceDisponible + $lockedBalance) / $dividirEntre;
 
 
@@ -156,8 +156,8 @@ require_once 'config.php';
                     <br/>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
 
-                    <iframe scrolling='no' frameborder='0' style='overflow:hidden;width:728px;height:90px;'
-                            src='//bee-ads.com/ad.php?id=19427'></iframe>
+                    <!--<iframe scrolling='no' frameborder='0' style='overflow:hidden;width:728px;height:90px;'
+                            src='//bee-ads.com/ad.php?id=19427'></iframe>-->
 
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                     <br/>
