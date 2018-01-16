@@ -6,5 +6,5 @@ I developed this for free to help spread the world about Niobio Cash but if you 
 
 Donations to Faucet Wallet:
 
-* NBR Wallet: NDRL6EEH2XyMpJZi4R4tWsGHf7Qax4uZxZn9Hzp7jWYrWpFSQfRVsahZLwSA1DZGdsRe1EbAxQxVW6kSVvhVSUMV9Qa7kEM
+* NBR Wallet: N5VprmAbmZDXsccjLCNZdJLuxibqADRw5SUtJq5vgDJALeybsF4ScefXzbzq9uMmtNYimp9jDSxFNRDzLdGJjuDYGJ5Q7wC
 

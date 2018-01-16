@@ -5,7 +5,7 @@ $faucetSubtitle = 'A cada 12 horas você pode obter Nióbio Cash grátis';
 $logo = 'images/nbrcoin.png';
 
 //Faucet address for donations
-$faucetAddress = 'NDRL6EEH2XyMpJZi4R4tWsGHf7Qax4uZxZn9Hzp7jWYrWpFSQfRVsahZLwSA1DZGdsRe1EbAxQxVW6kSVvhVSUMV9Qa7kEM';
+$faucetAddress = 'N5VprmAbmZDXsccjLCNZdJLuxibqADRw5SUtJq5vgDJALeybsF4ScefXzbzq9uMmtNYimp9jDSxFNRDzLdGJjuDYGJ5Q7wC';
 
 //Reward time in hours
 $rewardEvery = '12';
@@ -17,9 +17,9 @@ $maxReward = '0.3';
 
 //Database connection
 
-$userDB = '';
-$database = '';
-$passwordDB = '';
+$userDB = 'root';
+$database = 'faucet';
+$passwordDB = 'nbr12345678';
 $hostDB = '127.0.0.1';
 
 //Recaptcha Keys. You can get yours here: https://www.google.com/recaptcha/
