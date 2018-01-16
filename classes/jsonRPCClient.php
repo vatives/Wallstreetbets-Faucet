@@ -142,11 +142,11 @@ class jsonRPCClient
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
             $response = json_decode(curl_exec($ch), true);
             curl_close($ch);
-                print_r($response);
+                //print_r($response);
 
                 // debug output
                 if ($this->debug) {
-                    echo nl2br($debug);
+                    //echo nl2br($debug);
                 }
                
                 // final checks and return
