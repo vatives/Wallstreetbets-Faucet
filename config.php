@@ -24,8 +24,8 @@ $hostDB = '127.0.0.1';
 
 //Recaptcha Keys. You can get yours here: https://www.google.com/recaptcha/
 $keys = array(
-    'site_key' => '',
-    'secret_key' => ''
+    'site_key' => '6Le0AkEUAAAAAA0xp4QvxfLz6QBXFvQi1ifi_-79',
+    'secret_key' => '6Le0AkEUAAAAAGB5SCY8NbG5Fs7bBy7kvp-tiVo2'
 );
 
 //Addresses that can request more than one time but with a different payment ID.
