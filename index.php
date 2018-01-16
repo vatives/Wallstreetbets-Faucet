@@ -25,7 +25,7 @@ require_once 'config.php';
         }
     </script>
 
-    <script>
+    <!--<script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
@@ -40,7 +40,7 @@ require_once 'config.php';
 
         ga('create', 'UA-78493281-2', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script>-->
 </head>
 
 <body>
@@ -56,9 +56,9 @@ require_once 'config.php';
         <fieldset>
 
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-            <iframe data-aa='195916' src='https://ad.a-ads.com/195916?size=728x90' scrolling='no'
+           <!-- <iframe data-aa='195916' src='https://ad.a-ads.com/195916?size=728x90' scrolling='no'
                     style='width:728px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'
-                    frameborder='0'></iframe>
+                    frameborder='0'></iframe>-->
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
 
             <br/>
@@ -117,7 +117,7 @@ require_once 'config.php';
 
                 <?php } ?>
                 <div class='alert alert-info radius'>
-                    Баланс: <?php echo $balanceDisponibleFaucet ?> крб.<br>
+                    Saldo: <?php echo $balanceDisponibleFaucet ?> NBR.<br>
                     <?php
 
                     $link = new PDO('mysql:host=' . $hostDB . ';dbname=' . $database, $userDB, $passwordDB);
