@@ -3,8 +3,7 @@ require_once 'classes/recaptcha.php';
 require_once 'classes/jsonRPCClient.php';
 require_once 'config.php';
 
-// @TODO refactor to \PDO
-$link = mysqli_connect($hostDB, $userDB, $passwordDB, $database);
+$link = new PDO('mysql:host=' . $hostDB . ';dbname=' . $database, $userDB, $passwordDB);
 
 function randomize($min, $max)
 {
@@ -50,8 +49,8 @@ if ($recaptcha->set()) {
             $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payment_id` = '$paymentidPost')";
 			}
 
-        $resultCheck = mysqli_query($link, $queryCheck);
-        if ($row = @mysqli_fetch_assoc($resultCheck)) {
+        $resultCheck = $link->query($queryCheck);
+        if ($resultCheck->rowCount()) {
             header('Location: ./?msg=notYet');
             exit();
         }
@@ -96,8 +95,8 @@ if ($recaptcha->set()) {
 
         if (array_key_exists('tx_hash', $transferencia)) {
             $query = "INSERT INTO `payouts` (`payout_amount`,`ip_address`,`payout_address`,`payment_id`,`timestamp`) VALUES ('$cantidadEnviar','$direccionIP','$wallet','$paymentID',NOW());";
-            mysqli_query($link, $query);
-            mysqli_close($link);
+
+            $link->exec($query);
             header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
             exit();
         }

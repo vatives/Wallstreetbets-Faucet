@@ -66,7 +66,7 @@ require_once 'config.php';
 
             <?php
 
-            $bitcoin = new jsonRPCClient('http://127.0.0.1:32323/json_rpc');
+            $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/json_rpc');
 
             $balance = $bitcoin->getbalance();
             $balanceDisponible = $balance['available_balance'];
@@ -120,20 +120,18 @@ require_once 'config.php';
                     Баланс: <?php echo $balanceDisponibleFaucet ?> крб.<br>
                     <?php
 
-                    $link = mysqli_connect($hostDB, $userDB, $passwordDB, $database);
+                    $link = new PDO('mysql:host=' . $hostDB . ';dbname=' . $database, $userDB, $passwordDB);
 
                     $query = 'SELECT SUM(payout_amount) FROM `payouts`;';
 
-                    $result = mysqli_query($link, $query);
-                    $dato = mysqli_fetch_array($result);
+                    $result = $link->query($query);
+                    $dato = $result->fetchColumn();
 
                     $query2 = 'SELECT COUNT(*) FROM `payouts`;';
 
-                    $result2 = mysqli_query($link, $query2);
-                    $dato2 = mysqli_fetch_array($result2);
+                    $result2 = $link->query($query2);
+                    $dato2 = $result2->fetchColumn();
 
-
-                    mysqli_close($link);
                     ?>
 
                     Realizados: <?php echo $dato[0] / $dividirEntre; ?> de <?php echo $dato2[0]; ?> pagamentos.
