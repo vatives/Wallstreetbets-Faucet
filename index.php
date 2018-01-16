@@ -71,7 +71,7 @@ require_once 'config.php';
             $balance = $bitcoin->getbalance();
             $balanceDisponible = $balance['available_balance'];
             $lockedBalance = $balance['locked_amount'];
-            $dividirEntre = 1000000000000;
+            $dividirEntre = 10000000000;
             $totalBCN = ($balanceDisponible + $lockedBalance) / $dividirEntre;
 
 
