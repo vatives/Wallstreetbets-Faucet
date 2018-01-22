@@ -8,3 +8,4 @@ Donate to Faucet Wallet:
 
 * NBR Wallet: N5VprmAbmZDXsccjLCNZdJLuxibqADRw5SUtJq5vgDJALeybsF4ScefXzbzq9uMmtNYimp9jDSxFNRDzLdGJjuDYGJ5Q7wC
 
+Thanks.
