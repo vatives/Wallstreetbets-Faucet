@@ -60,7 +60,8 @@ require_once 'config.php';
                     style='width:728px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'
                     frameborder='0'></iframe>-->
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=BR&source=ac&ref=tf_til&ad_type=product_link&tracking_id=nbr0f-20&marketplace=amazon&region=BR&placement=B012ELKC28&asins=B012ELKC28&linkId=27e95f3d90da4c00a36df88afe360188&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF">
+            </iframe>
             <br/>
 
 
