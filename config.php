@@ -17,9 +17,9 @@ $maxReward = '0.3';
 
 //Database connection
 
-$userDB = 'root';
-$database = 'faucet';
-$passwordDB = 'nbr12345678';
+$userDB = 'niobio';
+$database = 'niobio';
+$passwordDB = 'm#4jt6$Pkl7x';
 $hostDB = '127.0.0.1';
 
 //Recaptcha Keys. You can get yours here: https://www.google.com/recaptcha/
