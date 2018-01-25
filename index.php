@@ -114,6 +114,11 @@ require_once 'config.php';
                         <div id='alert' class='alert alert-warning radius'>
                             Os nióbios são emitidos uma vez a cada 12 horas. Venha mais tarde.
                         </div>
+                    <?php } else if ($mensaje == 'dry') { ?>
+
+                        <div id='alert' class='alert alert-warning radius'>
+                            No donuts for you. Não foi dessa vez. Tente novamente.
+                        </div>
                     <?php } ?>
 
                 <?php } ?>
