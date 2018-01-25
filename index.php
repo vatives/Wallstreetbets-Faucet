@@ -233,9 +233,10 @@ require_once 'config.php';
                         </tbody>
                     </table>
                 </div>
-                <p style='font-size:10px;'>Doe nióbios para apoiar este faucet.
+                <p style='font-size:12px;'>Doe nióbios para apoiar este faucet.
                     <br>Carteira do Faucet NBR: <?php echo $faucetAddress; ?><br>&#169; 2018 Faucet by vinyvicente</p></center>
                 <footer class='clearfix'>
+                    <a href="https://niobiocash.com">NIOBIOCASH.COM</a>
                 </footer>
             </form>
 
