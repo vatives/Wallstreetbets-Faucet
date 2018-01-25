@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `payouts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 ```
 
-After you create database you need to edit config.php with all your custom parameters and also database information.
+After you create database, copy config.php.sample to config.php and edit config.php with all your custom parameters and also database information.
 
 
 Now for faucet to communicate with bytecoin wallet you need to run simplewallet as this:
