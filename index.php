@@ -130,7 +130,7 @@ require_once 'config.php';
 
                     $link = new PDO('mysql:host=' . $hostDB . ';dbname=' . $database, $userDB, $passwordDB);
 
-                    $query = 'SELECT SUM(payout_amount) FROM `payouts`;';
+                    $query = 'SELECT SUM(payout_amount) / 100000000 FROM `payouts`;';
 
                     $result = $link->query($query);
                     $dato = $result->fetchColumn();
@@ -142,7 +142,7 @@ require_once 'config.php';
 
                     ?>
 
-                    Realizados: <?php echo number_format(round($dato[0] / $dividirEntre, 12), 12, '.', ''); ?> de <?php echo $dato2[0]; ?> pagamentos.
+                    Realizados: <?php echo $dato[0]; ?> de <?php echo $dato2[0]; ?> pagamentos.
                 </div>
 
                 <?php if ($balanceDisponibleFaucet < 1.0) { ?>
