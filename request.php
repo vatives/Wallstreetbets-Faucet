@@ -93,6 +93,8 @@ if ($recaptcha->set()) {
             if ($link->exec($query)) {
                 header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
             } else {
+                exit($query);exit;
+
                 header('Location: ./?msg=erro_banco');
             }
 
