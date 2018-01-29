@@ -56,6 +56,8 @@ require_once 'config.php';
         <fieldset>
 
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
+            <iframe data-aa='827021' src='//ad.a-ads.com/827021?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
             <br/>
 
@@ -173,7 +175,6 @@ require_once 'config.php';
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                     <iframe data-aa='827011' src='//ad.a-ads.com/827011?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
                     <iframe data-aa='827020' src='//ad.a-ads.com/827020?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
-                    <iframe data-aa='827021' src='//ad.a-ads.com/827021?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                 <?php } ?>
                 <br>
