@@ -90,8 +90,12 @@ if ($recaptcha->set()) {
         if (array_key_exists('tx_hash', $transferencia)) {
             $query = "INSERT INTO `payouts` (`payout_amount`,`ip_address`,`payout_address`,`payment_id`,`timestamp`) VALUES ('$cantidadEnviar','$direccionIP','$wallet','$paymentID',NOW());";
 
-            $link->exec($query);
-            header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
+            if ($link->exec($query)) {
+                header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
+            } else {
+                header('Location: ./?msg=erro_banco');
+            }
+
             exit();
         }
 

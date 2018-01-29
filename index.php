@@ -117,9 +117,13 @@ require_once 'config.php';
                     <?php } else if ($mensaje == 'dry') { ?>
 
                         <div id='alert' class='alert alert-warning radius'>
-                            No donuts for you. Não foi dessa vez. Tente novamente.
+                            Não há niobios agora. Não foi dessa vez. Tente novamente.
                         </div>
-                    <?php } ?>
+                    <?php } elseif ('erro_banco' == $mensaje) { ?>
+                        <div id='alert' class='alert alert-warning radius'>
+                            Erro do banco de dados, contate o administrador.
+                        </div>
+                    <?php }?>
 
                 <?php } ?>
                 <div class='alert alert-info radius'>
