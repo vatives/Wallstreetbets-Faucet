@@ -43,6 +43,9 @@ if ($recaptcha->set()) {
         $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
 
         $resultCheck = $link->query($queryCheck);
+
+        exit($resultCheck->rowCount());exit;
+
         if ($resultCheck->rowCount()) {
             header('Location: ./?msg=notYet');
             exit();
@@ -93,8 +96,6 @@ if ($recaptcha->set()) {
             if ($link->exec($query)) {
                 header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
             } else {
-                exit($query);exit;
-
                 header('Location: ./?msg=erro_banco');
             }
 
