@@ -144,7 +144,7 @@ require_once 'config.php';
 
                     ?>
 
-                    Realizados: <?php echo $dato[0] / $dividirEntre; ?> de <?php echo $dato2[0]; ?> pagamentos.
+                    Realizados: <?php echo number_format($dato[0] / $dividirEntre, 6); ?> de <?php echo $dato2[0]; ?> pagamentos.
                 </div>
 
                 <?php if ($balanceDisponibleFaucet < 1.0) { ?>
