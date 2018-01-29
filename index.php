@@ -98,10 +98,10 @@ require_once 'config.php';
                     <?php } else if ($mensaje == 'success') { ?>
 
                         <div class='alert alert-success radius'>
-                            Ви виграли <?php echo $_GET['amount']; ?> крб.<br/><br/>
-                            Ви отримаєте <?php echo $_GET['amount'] - 0.0001; ?> крб. (Комісія мережі 0.0001)<br/>
+                            Você ganhou <?php echo $_GET['amount']; ?> NBRs.<br/><br/>
+                            Receberá <?php echo $_GET['amount'] - 0.0001; ?> NBRs. (fee de 0.0001)<br/>
                             <a target='_blank'
-                               href='http://explorer.karbowanec.com/?hash=<?php echo $_GET['txid']; ?>#blockchain_transaction'>Confira na Blockchain.</a>
+                               href='http://explorer.niobiocash.com/?hash=<?php echo $_GET['txid']; ?>#blockchain_transaction'>Confira na Blockchain.</a>
                         </div>
                     <?php } else if ($mensaje == 'paymentID') { ?>
 
