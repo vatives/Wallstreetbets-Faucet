@@ -40,14 +40,7 @@ if ($recaptcha->set()) {
             }
         }
 
-        //Looking for cleared address or not
-        $clave = array_search($wallet, $clearedAddresses);
-
-        if (empty($clave)) {
-            $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
-			} else {
-            $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payment_id` = '$paymentidPost')";
-			}
+        $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
 
         $resultCheck = $link->query($queryCheck);
         if ($resultCheck->rowCount()) {

@@ -201,7 +201,7 @@ require_once 'config.php';
 */ ?>
 
                 <div class='table-responsive'>
-                    <h6><b>Últimos 5 pagamentos</b></h6>
+                    <h6><b>Últimas 5 doações</b></h6>
                     <table class='table table-bordered table-condensed'>
                         <thead>
                         <tr>
