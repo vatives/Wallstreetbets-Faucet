@@ -60,7 +60,8 @@ require_once 'config.php';
                     style='width:728px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'
                     frameborder='0'></iframe>-->
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=BR&source=ac&ref=tf_til&ad_type=product_link&tracking_id=nbr0f-20&marketplace=amazon&region=BR&placement=B012ELKC28&asins=B012ELKC28&linkId=27e95f3d90da4c00a36df88afe360188&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066C0&bg_color=FFFFFF">
+            </iframe>
             <br/>
 
 
@@ -113,6 +114,11 @@ require_once 'config.php';
                         <div id='alert' class='alert alert-warning radius'>
                             Os nióbios são emitidos uma vez a cada 12 horas. Venha mais tarde.
                         </div>
+                    <?php } else if ($mensaje == 'dry') { ?>
+
+                        <div id='alert' class='alert alert-warning radius'>
+                            No donuts for you. Não foi dessa vez. Tente novamente.
+                        </div>
                     <?php } ?>
 
                 <?php } ?>
@@ -155,6 +161,8 @@ require_once 'config.php';
                     <input type='text' name='paymentid' placeholder='ID do pagamento (Opcional)'>
                     <br/>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
+                    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=BR&source=ac&ref=tf_til&ad_type=product_link&tracking_id=nbr0f-20&marketplace=amazon&region=BR&placement=B0186FEYKW&asins=B0186FEYKW&linkId=6089e0501d9dd35e7b6d76b0f4f60c62&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
+                </iframe>
 
                     <!--<iframe scrolling='no' frameborder='0' style='overflow:hidden;width:728px;height:90px;'
                             src='//bee-ads.com/ad.php?id=19427'></iframe>-->
@@ -225,9 +233,11 @@ require_once 'config.php';
                         </tbody>
                     </table>
                 </div>
-                <p style='font-size:10px;'>Doe nióbios para apoiar este faucet.
-                    <br>Carteira do Faucet NBR: <?php echo $faucetAddress; ?><br>&#169; 2018 Faucet by vinyvicente</p></center>
+                <p style='font-size:12px;'>Doe nióbios para apoiar este faucet.
+                    <br>Carteira do Faucet NBR: <span style='font-size:10px;'><?php echo $faucetAddress; ?></span>
+                    <br>&#169; 2018 Faucet by vinyvicente</p></center>
                 <footer class='clearfix'>
+                    <a href="https://niobiocash.com">NIOBIOCASH.COM</a>
                 </footer>
             </form>
 

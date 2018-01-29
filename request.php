@@ -58,8 +58,9 @@ if ($recaptcha->set()) {
         $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/json_rpc');
         $balance = $bitcoin->getbalance();
         $balanceDisponible = $balance['available_balance'];
-        $transactionFee = 100000000;
-        $dividirEntre = 1000000000000;
+        $transactionFee = 10000;
+        $dividirEntre = 100000000;
+
         $hasta = number_format(round($balanceDisponible / $dividirEntre, 12), 2, '.', '');
 
         if ($hasta > $maxReward) {
