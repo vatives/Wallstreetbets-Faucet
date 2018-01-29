@@ -165,12 +165,8 @@ require_once 'config.php';
                     <input type='text' name='paymentid' placeholder='ID do pagamento (Opcional)'>
                     <br/>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-                    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=BR&source=ac&ref=tf_til&ad_type=product_link&tracking_id=nbr0f-20&marketplace=amazon&region=BR&placement=B0186FEYKW&asins=B0186FEYKW&linkId=6089e0501d9dd35e7b6d76b0f4f60c62&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
-                </iframe>
-
-                    <!--<iframe scrolling='no' frameborder='0' style='overflow:hidden;width:728px;height:90px;'
-                            src='//bee-ads.com/ad.php?id=19427'></iframe>-->
-
+                    <iframe data-aa='827013' src='//ad.a-ads.com/827013?size=200x200' scrolling='no' style='width:200px; height:200px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                    <iframe data-aa='827017' src='//ad.a-ads.com/827017?size=200x200' scrolling='no' style='width:200px; height:200px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                     <br/>
                     <?php
@@ -180,7 +176,9 @@ require_once 'config.php';
                     <center><input type='submit' value='Obter nióbios grátis!'></center>
                     <br>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-                    <!--iframe scrolling='no' frameborder='0' style='overflow:hidden;width:468px;height:60px;' src='//bee-ads.com/ad.php?id=6534'></iframe-->
+                    <iframe data-aa='827011' src='//ad.a-ads.com/827011?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                    <iframe data-aa='827020' src='//ad.a-ads.com/827020?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                    <iframe data-aa='827021' src='//ad.a-ads.com/827021?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                 <?php } ?>
                 <br>
