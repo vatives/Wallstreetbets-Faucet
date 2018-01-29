@@ -40,8 +40,7 @@ if ($recaptcha->set()) {
             }
         }
 
-        $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL ' . $rewardEvery . ' HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
-
+        $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL $rewardEvery HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
         $resultCheck = $link->query($queryCheck);
         $count = 0;
         foreach ($resultCheck->fetchAll(PDO::FETCH_ASSOC) as $cou) {
