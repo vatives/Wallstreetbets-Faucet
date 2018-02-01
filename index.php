@@ -149,13 +149,8 @@ require_once 'config.php';
                     <div class='alert alert-warning radius'>
                         A carteira está vazia ou o saldo é menor do que o ganho. <br> Venha mais tarde, &ndash; podemos receber mais doações.
                     </div>
-
                 <?php } elseif (!$link) {
-
-                    // $link = mysqli_connect($hostDB, $userDB, $passwordDB, $database);
-
-
-                    die('Помилка піключення' . mysql_error());
+                    die('Erro na conexao com o banco de dados' . mysql_error());
                 } else { ?>
 
                     <input type='text' name='wallet' required placeholder='Endereço da carteira NBR'>
@@ -163,8 +158,7 @@ require_once 'config.php';
                     <input type='text' name='paymentid' placeholder='ID do pagamento (Opcional)'>
                     <br/>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-                    <iframe data-aa='827013' src='//ad.a-ads.com/827013?size=200x200' scrolling='no' style='width:200px; height:200px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
-                    <iframe data-aa='827017' src='//ad.a-ads.com/827017?size=200x200' scrolling='no' style='width:200px; height:200px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                    <iframe src="//ads.runcpa.com/rotator/a2c10dbe00" frameborder="0" style="overflow: hidden;" scrolling="no"></iframe>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                     <br/>
                     <?php
