@@ -80,7 +80,7 @@ if ($recaptcha->set()) {
             'destinations' => $destination,
             'payment_id' => $paymentID,
             'fee' => $transactionFee,
-            'mixin' => 1, // need to increase mixin later
+            'mixin' => 0, 
             'unlock_time' => 0
         );
 
