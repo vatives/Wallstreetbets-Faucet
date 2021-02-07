@@ -38,7 +38,7 @@ require_once 'config.php';
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-78493281-2', 'auto');
+        ga('create', 'G-DJ857XFYY0-2', 'auto');
         ga('send', 'pageview');
     </script>-->
 </head>
