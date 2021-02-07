@@ -1,4 +1,4 @@
-# Niobio-Faucet
+# Wallstreetbets-Faucet
 
 This is a PHP and MYSQL Faucet for Niobio Cash Crypto Currency forked from KarbowanecFaucet faucet by vinyvicente.
 
