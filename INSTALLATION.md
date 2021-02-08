@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS `payouts` (
   `ip_address` varchar(45) NOT NULL,
   `payout_amount` double NOT NULL,
   `payout_address` varchar(100) NOT NULL,
-  `payment_id` varchar(75) NOT NULL,
+  `payment_id` varchar(75) NULL,
+  `transaction_id` varchar(75) NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 ```
