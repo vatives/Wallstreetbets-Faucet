@@ -1,11 +1,12 @@
 # Wallstreetbets-Faucet
+This is a PHP and MYSQL Faucet for WallStreetBeets Crypto Currency forked from Niobio-Faucet by Niobio-Cash forked from KarbowanecFaucet faucet by vinyvicente.
 
-This is a PHP and MYSQL Faucet for Niobio Cash Crypto Currency forked from KarbowanecFaucet faucet by vinyvicente.
 
-I developed this for free to help spread the world about Niobio Cash but if you want to tip me, everything will be appreciated :D
+Developed to help out with wallstreetsbets coin and get the word out!
 
 Donate to Faucet Wallet:
 
-* NBR Wallet: N5VprmAbmZDXsccjLCNZdJLuxibqADRw5SUtJq5vgDJALeybsF4ScefXzbzq9uMmtNYimp9jDSxFNRDzLdGJjuDYGJ5Q7wC
+* WSB Wallet: WSBCofTYqpDJVuPyySexZYEQyH1vgp4eLE1XJUKnUHfggeWGZzPpEzwESJdFCMDR8ZUypz1HqdNinFGBW1M68Jx9auuYHaY2cdG
 
 Thanks.
+Drate
