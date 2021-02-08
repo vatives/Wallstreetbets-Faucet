@@ -17,6 +17,7 @@ function randomize($min, $max)
 $recaptcha = new Recaptcha($keys);
 if ($recaptcha->set()) {
     if ($recaptcha->verify($_POST['g-recaptcha-response'])) {
+	  // if (TRUE) {
         //Checking address and payment ID characters
         $wallet = $str = trim(preg_replace('/[^a-zA-Z0-9]/', '', $_POST['wallet']));
         $paymentidPost = $str = trim(preg_replace('/[^a-zA-Z0-9]/', '', $_POST['paymentid']));
@@ -40,21 +41,27 @@ if ($recaptcha->set()) {
             }
         }
 
-        $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL $rewardEvery HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet')";
+        $queryCheck = "SELECT `id` FROM `payouts` WHERE `timestamp` > NOW() - INTERVAL $rewardEvery HOUR AND ( `ip_address` = '$direccionIP' OR `payout_address` = '$wallet' )";
         $resultCheck = $link->query($queryCheck);
         $count = 0;
         foreach ($resultCheck->fetchAll(PDO::FETCH_ASSOC) as $cou) {
             $count++;
         }
-
+	//	if ($wallet == 'WSBCofTYqpDJVuPyySexZYEQyH1vgp4eLE1XJUKnUHfggeWGZzPpEzwESJdFCMDR8ZUypz1HqdNinFGBW1M68Jx9auuYHaY2cdG')
+	//	{
+	//		$count = 0;
+	//	}
         if ($count) {
             header('Location: ./?msg=notYet');
             exit();
         }
 
-        $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/json_rpc');
-        $balance = $bitcoin->getbalance();
-        $balanceDisponible = $balance['available_balance'];
+        $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/',$walletAPIPassword);
+        $balance = $bitcoin->balance();
+		error_log("balance");
+		error_log(print_r($balance,true));
+        $balanceDisponible = $balance['unlocked'];
+		error_log(print_r($balanceDisponible,true));
         $transactionFee = 10000;
         $dividirEntre = 100000000;
 
@@ -78,24 +85,25 @@ if ($recaptcha->set()) {
         $timestampUnix = $date->getTimestamp() + 5;
         $peticion = array(
             'destinations' => $destination,
-            'payment_id' => $paymentID,
+            'paymentId' => $paymentID,
             'fee' => $transactionFee,
             'mixin' => 0, 
-            'unlock_time' => 0
+            'unlockTime' => 0
         );
-
+		error_log(print_r($peticion,true));
         $transferencia = $bitcoin->transfer($peticion);
-
+		error_log(print_r($transferencia,true));
         if ($transferencia == 'Bad address') {
             header('Location: ./?msg=wallet');
             exit();
         }
 
-        if (array_key_exists('tx_hash', $transferencia)) {
-            $query = "INSERT INTO `payouts` (`payout_amount`,`ip_address`,`payout_address`,`payment_id`,`timestamp`) VALUES ('$cantidadEnviar','$direccionIP','$wallet','$paymentID',NOW());";
-
+        if (array_key_exists('transactionHash', $transferencia)) {
+			$transactionID = $transferencia["transactionHash"];
+            $query = "INSERT INTO `payouts` (`payout_amount`,`ip_address`,`payout_address`,`payment_id`,`transaction_id`,`timestamp`) VALUES ('$cantidadEnviar','$direccionIP','$wallet','$paymentID','$transactionID',NOW());";
+			error_log($query);
             if ($link->exec($query)) {
-                header('Location: ./?msg=success&txid=' . $transferencia['tx_hash'] . '&amount=' . $aleatorio);
+                header('Location: ./?msg=success&txid=' . $transactionID . '&amount=' . $aleatorio);
             } else {
                 header('Location: ./?msg=erro_banco');
             }

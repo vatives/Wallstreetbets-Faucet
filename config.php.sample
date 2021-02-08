@@ -1,19 +1,21 @@
 <?php
 
-$faucetTitle = 'Nióbio Cash Faucet';
-$faucetSubtitle = 'A cada 12 horas você pode obter Nióbio Cash grátis';
-$logo = 'images/nbrcoin.png';
+$faucetTitle = 'WallStreetBets Faucet';
+$faucetSubtitle = 'EVERY 12 HOURS YOU CAN GET FREE WALLSTREETBETS COINS';
+$logo = '/images/icon.png';
 
 // Faucet address for donations
 // Replace by your wallet address
 $faucetAddress = 'wallet_address';
 
+//password for the wallet api 
+$walletAPIPassword = 'password';
 // Reward time in hours
 $rewardEvery = '12';
 // Max reward and min reward as decimals Ex: Min = 10.0 & Max = 20.0
-$minReward = '0.01'; //Remember that the minimum for an eobot deposit is 5 BCN as reward.
-$maxReward = '0.3';
-// Transaction fee is set to 0.01 BCN for every request.
+$minReward = '1.0'; 
+$maxReward = '5.0';
+// Transaction fee is set to 0.0001 WSB for every request.
 
 
 // Database connection

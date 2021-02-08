@@ -62,10 +62,12 @@ class jsonRPCClient
          * @param string $url
          * @param boolean $debug
          */
-        public function __construct($url, $debug = false)
+        public function __construct($url,$key, $debug = false)
         {
             // server URL
                 $this->url = $url;
+				// service password
+				$this->paswordkey = $key;
                 // proxy
                 empty($proxy) ? $this->proxy = '' : $this->proxy = $proxy;
                 // debug state
@@ -88,7 +90,7 @@ class jsonRPCClient
         }
        
         /**
-         * Performs a jsonRCP request and gets the results as an array
+         * Performs a http request and gets the results as an array
          *
          * @param string $method
          * @param array $params
@@ -117,11 +119,9 @@ class jsonRPCClient
                     $currentId = $this->id;
                 }
                
-            $request = array('jsonrpc' => '2.0',
-                                                'method' => $method,
-                                                'params' => $params
-                                                );
-
+      
+			$request = $params;
+			
             if ($method == "send_transaction" or $method == "get_transaction" or $method == "transfer") {
                 $request = str_replace(array('[', ']'), '', htmlspecialchars(json_encode($request), ENT_NOQUOTES));
                 $this->debug && $this->debug.='***** Request *****'."\n".$request."\n".'***** End Of request *****'."\n\n";
@@ -133,16 +133,35 @@ class jsonRPCClient
             } else {
                 $request = json_encode($request, JSON_FORCE_OBJECT);
             }
-
-              // performs the HTTP POST
-                $ch = curl_init($this->url);
+		if ($method == "transfer") {
+			$transactionAPI = "transactions/send/advanced";
+			// performs the HTTP POST
+			$ch = curl_init($this->url.$transactionAPI);
+			error_log(print_r($ch,true));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json','X-API-KEY: '.$this->paswordkey));
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+			
+			
+			
+		}
+		else{
+              // performs the HTTP GET
+            $ch = curl_init($this->url.$method);
+			//	error_log(print_r($ch,true));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json','X-API-KEY: '.$this->paswordkey));
+        
+			
+		}
             $response = json_decode(curl_exec($ch), true);
+			$info = curl_getinfo($ch);
+			error_log(print_r($info,true));
+			error_log(print_r($response,true));
+			
             curl_close($ch);
-                //print_r($response);
+               
 
                 // debug output
                 if ($this->debug) {
@@ -160,7 +179,7 @@ class jsonRPCClient
                         return $response['error']['message'];
                     }
                        
-                    return $response['result'];
+                    return $response;
                 } else {
                     return true;
                 }

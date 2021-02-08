@@ -11,7 +11,7 @@ require_once 'config.php';
     <meta charset='UTF-8'>
     <title><?php echo $faucetTitle; ?></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='shortcut icon' href='images/favicon.ico'>
+    <link rel='shortcut icon' href='https://wallstreetbetsbros.com/wp-content/uploads/2021/01/cropped-stsmall507x507-pad600x600f8f8f8-1-192x192.jpg'>
     <link rel='icon' type='image/icon' href='images/favicon.ico'>
 
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
@@ -20,9 +20,9 @@ require_once 'config.php';
     <script>var isAdBlockActive = true;</script>
     <script src='/js/advertisement.js'></script>
     <script>
-        if (isAdBlockActive) {
-            window.location = './adblocker.php'
-        }
+       // if (isAdBlockActive) {
+       //     window.location = './adblocker.php'
+      //  }
     </script>
 
     <!--<script>
@@ -56,20 +56,20 @@ require_once 'config.php';
         <fieldset>
 
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-            <iframe data-aa='827021' src='//ad.a-ads.com/827021?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
-            <iframe data-aa='827031' src='//ad.a-ads.com/827031?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
-            <iframe data-aa='827035' src='//ad.a-ads.com/827035?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+        
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
             <br/>
 
 
             <?php
 
-            $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/json_rpc');
+            $bitcoin = new jsonRPCClient('http://127.0.0.1:8070/',$walletAPIPassword);
 
-            $balance = $bitcoin->getbalance();
-            $balanceDisponible = $balance['available_balance'];
-            $lockedBalance = $balance['locked_amount'];
+            $balance = $bitcoin->balance();
+			//error_log("balance = ".$balance);
+			
+            $balanceDisponible = $balance['unlocked'];
+            $lockedBalance = $balance['locked'];
             $dividirEntre = 100000000;
             $totalBCN = ($balanceDisponible + $lockedBalance) / $dividirEntre;
 
@@ -87,45 +87,45 @@ require_once 'config.php';
                     if ($mensaje == 'captcha') {
                         ?>
                         <div id='alert' class='alert alert-error radius'>
-                            Captcha inválido, digite o correto.
+                            Invalid captcha, enter the correct one.
                         </div>
                     <?php } else if ($mensaje == 'wallet') { ?>
 
                         <div id='alert' class='alert alert-error radius'>
-                            Digite o endereço NBR correto.
+                           Enter the correct WSB address.
                         </div>
                     <?php } else if ($mensaje == 'success') { ?>
 
                         <div class='alert alert-success radius'>
-                            Você ganhou <?php echo $_GET['amount']; ?> NBRs.<br/><br/>
-                            Receberá <?php echo $_GET['amount'] - 0.0001; ?> NBRs. (fee de 0.0001)<br/>
+                            You Won <?php echo $_GET['amount']; ?> WSB.<br/><br/>
+                            Will receive <?php echo $_GET['amount'] - 0.0001; ?> WSBs. (network fee  0.0001)<br/>
                             <a target='_blank'
-                               href='http://explorer.niobiocash.com/?hash=<?php echo $_GET['txid']; ?>#blockchain_transaction'>Confira na Blockchain.</a>
+                               href=http://explorer.wallstreetbetsbros.com/?hash=<?php echo $_GET['txid']; ?>#blockchain_transaction'>Check it out on the Blockchain.</a>
                         </div>
                     <?php } else if ($mensaje == 'paymentID') { ?>
 
                         <div id='alert' class='alert alert-error radius'>
-                            Verifique o seu ID de pagamento. <br>Deve ser composto por 64 caracteres sem caracteres especiais.
+                            Check your payment ID. <br>It must consist of 64 characters without special characters.
                         </div>
                     <?php } else if ($mensaje == 'notYet') { ?>
 
                         <div id='alert' class='alert alert-warning radius'>
-                            Os nióbios são emitidos uma vez a cada 12 horas. Venha mais tarde.
+                            WSB Coins are sent once every <?php echo $rewardEvery ?> hours. Come back later.
                         </div>
                     <?php } else if ($mensaje == 'dry') { ?>
 
                         <div id='alert' class='alert alert-warning radius'>
-                            Não há niobios agora. Não foi dessa vez. Tente novamente.
+                           There are no WSB Coins now. Not at this time. Try again.
                         </div>
                     <?php } elseif ('erro_banco' == $mensaje) { ?>
                         <div id='alert' class='alert alert-warning radius'>
-                            Erro do banco de dados, contate o administrador.
+                            Database error, contact your administrator.
                         </div>
                     <?php }?>
 
                 <?php } ?>
                 <div class='alert alert-info radius'>
-                    Saldo: <?php echo $balanceDisponibleFaucet ?> NBR.<br>
+                    Balance: <?php echo $balanceDisponibleFaucet ?> WSB<br>
                     <?php
 
                     $link = new PDO('mysql:host=' . $hostDB . ';dbname=' . $database, $userDB, $passwordDB);
@@ -142,34 +142,33 @@ require_once 'config.php';
 
                     ?>
 
-                    Realizados: <?php echo $dato; ?> de <?php echo $dato2; ?> pagamentos.
+                    Total Payed out <?php echo $dato; ?> WSB in <?php echo $dato2; ?> payments.
                 </div>
 
                 <?php if ($balanceDisponibleFaucet < 1.0) { ?>
                     <div class='alert alert-warning radius'>
-                        A carteira está vazia ou o saldo é menor do que o ganho. <br> Venha mais tarde, &ndash; podemos receber mais doações.
+                        The wallet is empty or the balance is less than the gain. <br> Come back later, &ndash; we can receive more donations.
                     </div>
                 <?php } elseif (!$link) {
                     die('Erro na conexao com o banco de dados' . mysql_error());
                 } else { ?>
 
-                    <input type='text' name='wallet' required placeholder='Endereço da carteira NBR'>
+                    <input type='text' name='wallet' required placeholder='WSB Wallet Address'>
 
-                    <input type='text' name='paymentid' placeholder='ID do pagamento (Opcional)'>
+                    <input type='text' name='paymentid' placeholder='Payment ID (Optional)'>
                     <br/>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-                    <iframe src="//ads.runcpa.com/rotator/a2c10dbe00" frameborder="0" style="overflow: hidden;" scrolling="no"></iframe>
+                 
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                     <br/>
                     <?php
                     echo $recaptcha->render();
                     ?>
 
-                    <center><input type='submit' value='Obter nióbios grátis!'></center>
+                    <center><input type='submit' value='Get free coins!'></center>
                     <br>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
-                    <iframe data-aa='827011' src='//ad.a-ads.com/827011?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
-                    <iframe data-aa='827020' src='//ad.a-ads.com/827020?size=180x150' scrolling='no' style='width:180px; height:150px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                   
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                 <?php } ?>
                 <br>
@@ -194,31 +193,31 @@ require_once 'config.php';
 */ ?>
 
                 <div class='table-responsive'>
-                    <h6><b>Últimas 5 doações</b></h6>
+                    <h6><b>Last 10 transactions</b></h6>
                     <table class='table table-bordered table-condensed'>
                         <thead>
                         <tr>
-                            <th>Data/hora</th>
-                            <th>Valor</th>
+                            <th>Date / Time</th>
+                            <th>Value</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        $deposits = ($bitcoin->get_transfers());
+                        $deposits = ($bitcoin->transactions());
 
-                        $transfers = array_reverse(($deposits['transfers']), true);
+                        $transfers = array_reverse(($deposits['transactions']), true);
                         $contador = 0;
                         foreach ($transfers as $deposit) {
-                            if ($deposit['output'] == '') {
-                                if ($contador < 6) {
-                                    $time = $deposit['time'];
+                           // if ($deposit['output'] == '') {
+                                if ($contador < 11) {
+                                    $time = $deposit['timestamp'];
                                     echo '<tr>';
-                                    echo '<th>' . gmdate('d/m/Y H:i:s', $time) . '</th>';
-                                    echo '<th>' . round($deposit['amount'] / $dividirEntre, 8) . '</th>';
+                                    echo '<th>' . gmdate('m/d/Y H:i:s', $time) . '</th>';
+                                    echo '<th>' . round($deposit['transfers'][0]['amount'] / $dividirEntre, 12) . '</th>';
                                     echo '</tr>';
                                     $contador++;
                                 }
-                            }
+                          //  }
 
 
                         }
@@ -226,11 +225,11 @@ require_once 'config.php';
                         </tbody>
                     </table>
                 </div>
-                <p style='font-size:12px;'>Doe nióbios para apoiar este faucet.
-                    <br>Carteira do Faucet NBR: <span style='font-size:10px;'><?php echo $faucetAddress; ?></span>
-                    <br>&#169; 2018 Faucet by vinyvicente</p></center>
+                <p style='font-size:12px;'>Donate WallStreetBets Coins to support this faucet.
+                    <br>Faucet WSB Wallet: <span style='font-size:9px;font-weight:bold;color:blue'><?php echo $faucetAddress; ?></span>
+                    <br>&#169; 2021 Faucet by drate</p></center>
                 <footer class='clearfix'>
-                    <a href="https://niobiocash.com">NIOBIOCASH.COM</a>
+                    <a href="https://wallstreetbetsbros.com/">wallstreetbetsbros.com</a>
                 </footer>
             </form>
 
