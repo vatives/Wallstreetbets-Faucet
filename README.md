@@ -4,6 +4,7 @@ This is a PHP and MYSQL Faucet for WallStreetBeets Crypto Currency forked from N
 
 Developed to help out with wallstreetsbets coin and get the word out!
 Configurable Faucet to give out crypocurrency coins:
+
 Features
   * Delay by humber of hours
   * Min and max number of coins to dispense
