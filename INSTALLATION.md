@@ -35,26 +35,26 @@ Now for faucet to communicate with bytecoin wallet you need to run wallet-api as
 
 Create wallet or open wallet
 ```
-curl -X POST "http://127.0.0.1:8070/wallet/create" -H "accept: application/json" -H "X-API-KEY: mike" -H "Content-Type: application/json" -d "{ \"daemonHost\": \"127.0.0.1\", \"daemonPort\": 19993, \"filename\": \"WALLETNAME.wallet\", \"password\": \"WALLETPASSWORD\"}"
+curl -X POST "http://127.0.0.1:8070/wallet/create" -H "accept: application/json" -H "X-API-KEY: PASSWORD" -H "Content-Type: application/json" -d "{ \"daemonHost\": \"127.0.0.1\", \"daemonPort\": 19993, \"filename\": \"WALLETNAME.wallet\", \"password\": \"WALLETPASSWORD\"}"
 ```
 Open a already created wallet
 ```
-curl -X POST "http://127.0.0.1:8070/wallet/open" -H "accept: application/json" -H "X-API-KEY: mike" -H "Content-Type: application/json" -d "{ \"daemonHost\": \"127.0.0.1\", \"daemonPort\": 19993, \"filename\": \"WALLETNAME.wallet\", \"password\": \"WALLETPASSWORD\"}"
+curl -X POST "http://127.0.0.1:8070/wallet/open" -H "accept: application/json" -H "X-API-KEY: PASSWORD" -H "Content-Type: application/json" -d "{ \"daemonHost\": \"127.0.0.1\", \"daemonPort\": 19993, \"filename\": \"WALLETNAME.wallet\", \"password\": \"WALLETPASSWORD\"}"
 ```
 
 Get Wallet Address
 ```
-curl -X GET "http://127.0.0.1:8070/addresses" -H "accept: application/json" -H "X-API-KEY: mike"
+curl -X GET "http://127.0.0.1:8070/addresses" -H "accept: application/json" -H "X-API-KEY: PASSWORD"
 ```
 
 Get Wallet Mnemonic key
 ```
-curl -X GET "http://127.0.0.1:8070/keys/mnemonic/WALLET_ADDRESS" -H "accept: application/json"
+curl -X GET "http://127.0.0.1:8070/keys/mnemonic/WALLET_ADDRESS" -H "accept: application/json" -H "X-API-KEY: PASSWORD"
 ```
 
 Get Wallet Private key
 ```
-curl -X GET "http://127.0.0.1:8070/keys" -H "accept: application/json"
+curl -X GET "http://127.0.0.1:8070/keys" -H "accept: application/json" -H "X-API-KEY: PASSWORD"
 ```
 
 * WALLETNAME.wallet needs to be the wallet file name that you enter when you created your wallet.
