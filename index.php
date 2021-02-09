@@ -4,7 +4,8 @@ ini_set('max_execution_time', 20);
 require_once 'classes/jsonRPCClient.php';
 require_once 'classes/recaptcha.php';
 require_once 'config.php';
-
+$et=md5(time()); // 32-bit etag value calculated based on current time in seconds since year 1970.
+ header("ETag: \"".$et."\"",true);
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +18,7 @@ require_once 'config.php';
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/css/style.css'>
 
-    <script>var isAdBlockActive = true;</script>
-    <script src='/js/advertisement.js'></script>
-    <script>
-       // if (isAdBlockActive) {
-       //     window.location = './adblocker.php'
-      //  }
-    </script>
+   
 
     <!--<script>
         (function (i, s, o, g, r, a, m) {
@@ -54,7 +49,9 @@ require_once 'config.php';
 
 
         <fieldset>
-
+			<footer class='clearfix'>
+                    <a href="https://github.com/cryptodeveloperbro/WallStreetBetsCoin/releases/tag/2.0">Don't have a wallet? Get it here.</a>
+                </footer>
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
         
             <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
@@ -165,7 +162,7 @@ require_once 'config.php';
                     echo $recaptcha->render();
                     ?>
 
-                    <center><input type='submit' value='Get free coins!'></center>
+                    <center><input type='submit' value='Get Free Coins!'></center>
                     <br>
                     <!-- ADS ADS ADS ADS ADS ADS ADS ADS ADS -->
                    
@@ -225,8 +222,8 @@ require_once 'config.php';
                         </tbody>
                     </table>
                 </div>
-                <p style='font-size:12px;'>Donate WallStreetBets Coins to support this faucet.
-                    <br>Faucet WSB Wallet: <span style='font-size:9px;font-weight:bold;color:blue'><?php echo $faucetAddress; ?></span>
+                <p style='font-size:0.8em;'>Donate WallStreetBets Coins to support this faucet.
+                    <br>Faucet WSB Wallet:<br> <span style='font-size:.7em;color:darkblue'><?php echo $faucetAddress; ?></span>
                     <br>&#169; 2021 Faucet by drate</p></center>
                 <footer class='clearfix'>
                     <a href="https://wallstreetbetsbros.com/">wallstreetbetsbros.com</a>
@@ -237,6 +234,13 @@ require_once 'config.php';
     </div> <!-- end login-form -->
 
 </div>
+ <script>var isAdBlockActive = true;</script>
+    <script src='/js/advertisement.js'></script>
+    <script>
+       // if (isAdBlockActive) {
+       //     window.location = './adblocker.php'
+      //  }
+    </script>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <?php if (isset($_GET['msg'])) { ?>
     <script>

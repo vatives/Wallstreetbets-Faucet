@@ -52,6 +52,7 @@ input[type="submit"] {
 
 .clearfix {
   *zoom: 1;
+   font-size: 1.75em;
 }
 .clearfix:before, .clearfix:after {
   content: ' ';
@@ -70,14 +71,14 @@ input[type="submit"] {
 
 /* ---------- LOGIN-FORM ---------- */
 #login-form {
-  width: 600px;
+  width: 100%;
 }
 
 #login-form h3 {
   background-color: #282830;
   border-radius: 5px 5px 0 0;
   color: #fff;
-  font-size: 14px;
+  font-size: 1.75em;
   padding: 20px;
   text-align: center;
   text-transform: uppercase;
@@ -105,7 +106,7 @@ input[type="submit"] {
 }
 
 #login-form input {
-  font-size: 14px;
+  font-size: 1em;
 }
 
 #login-form input[name="wallet"],
@@ -138,7 +139,7 @@ input[type="submit"] {
 }
 
 #login-form footer {
-  font-size: 12px;
+  font-size: 1.5em;
   margin-top: 16px;
 }
 
@@ -163,9 +164,9 @@ div.g-recaptcha {
     position: relative;
     display: block;
     padding: 1em 1.8em;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 300;
-    line-height: 1.2;
+    line-height: 1.4;
     text-align: center;
     margin-top: 0.4em;
     margin-bottom: 0.4em;
@@ -226,5 +227,5 @@ a:hover{
 }
 .table th {
    text-align: center;  
-   font-size: 10px;
+   font-size: 1em;
 }
