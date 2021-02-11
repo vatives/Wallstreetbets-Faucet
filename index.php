@@ -206,10 +206,13 @@ $et=md5(time()); // 32-bit etag value calculated based on current time in second
                         $contador = 0;
                         foreach ($transfers as $deposit) {
                            // if ($deposit['output'] == '') {
-                                if ($contador < 11) {
+                                if ($contador < 11 && abs($deposit['transfers'][0]['amount'] / $dividirEntre) > 1 ) {
                                     $time = $deposit['timestamp'];
                                     echo '<tr>';
-                                    echo '<th>' . gmdate('m/d/Y H:i:s', $time) . '</th>';
+                                    echo '<th><script> var unix = new Date( "' . gmdate('Y-m-d H:i:s T', $time) . '").toLocaleString("en-US"); document.write(unix); </script> </th>';
+									
+									// echo '<th><script> var unix = new Date( ' . gmdate('m/d/Y H:i:s', $time) . ').toLocaleString("en-US", {timeZone: "Europe/Prague"}); document.write(unix); </script> </th>';
+									
                                     echo '<th>' . round($deposit['transfers'][0]['amount'] / $dividirEntre, 12) . '</th>';
                                     echo '</tr>';
                                     $contador++;
